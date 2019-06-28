@@ -11,6 +11,9 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
+      <div>
+        <h2>Testing</h2>
+      </div>
         {/* {this.props.errorMessage && (
           <h2 style={{ color: 'red' }}>{this.props.errorMessage}</h2>
         )}
