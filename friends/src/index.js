@@ -9,13 +9,13 @@ import App from './App';
 import './index.css';
 
 import {
-//   friendsReducer,
+ friendsReducer,
   requestPendingReducer,
 //   errorMessageReducer,
 } from './reducers/reducers';
 
 const combinedReducer = combineReducers({
-//   fetchingFriends: friendsReducer,
+ fetchingFriends: friendsReducer,
   requestPending: requestPendingReducer,
 //   errorMessage: errorMessageReducer,
 });

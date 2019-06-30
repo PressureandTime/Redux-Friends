@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import RestrictedRoute from './HOCs/RestrictedRoute';
 import LoginView from './views/LoginView';
-import Friends from './components/Friends'
+import Friends from './components/Friends';
+import GetFriends from './components/GetFriends';
 
 import './App.css';
 
-class App extends React.Component {
+class App extends Component {
   render() {
     return (
       <div className="App">
-      <div>
-        <h2>Testing</h2>
-      </div>
+      <GetFriends/>
+       
+
         {/* {this.props.errorMessage && (
           <h2 style={{ color: 'red' }}>{this.props.errorMessage}</h2>
         )}
@@ -28,8 +29,8 @@ class App extends React.Component {
 function mapStateToProps(reducers) {
   return {
     requestPending: reducers.requestPending,
-    errorMessage: reducers.errorMessage,
-  }
+    errorMessage: reducers.errorMessage
+  };
 }
 
 export default connect(mapStateToProps)(App);
