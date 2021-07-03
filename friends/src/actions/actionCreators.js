@@ -31,6 +31,7 @@ export function fetchFriend() {
         dispatch({ type: FETCHING_FRIEND_SUCCESS, payload: res.data });
       })
       .catch(err => {
+        console.log(err);
         const error = err.response.data.message;
         dispatch({ type: FETCHING_FRIEND_FAILURE, payload: error });
         console.error(error);
@@ -118,3 +119,4 @@ export function login(credentials) {
       });
   };
 }
+

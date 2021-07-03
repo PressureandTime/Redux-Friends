@@ -28,11 +28,11 @@ const initialState = {
 
 export function friendsReducer(sliceOfState = initialState, action) {
   switch (action.type) {
-    case FETCHING_FRIEND_SUCCESS:
-      return {
-        ...sliceOfState,
-        fetchingFriends: true
-      };
+    // case FETCHING_FRIEND_SUCCESS:
+    //   return {
+    //     ...sliceOfState,
+    //     fetchingFriends: true
+    //   };
     case SAVING_FRIEND_SUCCESS:
       return {
         ...sliceOfState,
@@ -58,19 +58,23 @@ export function errorMessageReducer(sliceOfState = initialState, action) {
     case FETCHING_FRIEND_FAILURE:
       return {
         ...sliceOfState,
+        error:action.payload,
         fetchingFriends: false
       };
 
-    case FETCHING_FRIEND_SUCCESS:
-      return {
-        ...sliceOfState,
-        fetchingFriends: true
-      };
+    // case FETCHING_FRIEND_SUCCESS:
+    //   return {
+    //     ...sliceOfState,
+    //     error: null,
+    //     fetchingFriends: false,
+    //     friends: action.payload
+    //   };
 
     case SAVING_FRIEND_FAILURE:
       return {
         ...sliceOfState,
-        savingFriends: false
+        error:action.payload,
+        fetchingFriends: false
       };
     case SAVING_FRIEND_SUCCESS:
       return {
@@ -120,12 +124,16 @@ export function requestPendingReducer(sliceOfState = initialState, action) {
   switch (action.type) {
     case FETCHING_FRIEND:
       return {
-        ...sliceOfState
+        ...sliceOfState,
+        fetchingFriends:true
+
       };
     case FETCHING_FRIEND_SUCCESS:
       return {
         ...sliceOfState,
-        fetchingFriends: true
+        error: null,
+        fetchingFriends: false,
+        friends: action.payload
       };
     case FETCHING_FRIEND_FAILURE:
       return {
